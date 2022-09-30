@@ -1,44 +1,48 @@
-body{
-    background-color: rgb(99, 105, 226);
-
-}
-
-
-.touches{
+.calculatrice{
     display:grid;
-    grid-template-columns: repeat(4,60px);
-    grid-template-rows: repeat(6,60px);
-    grid-template-areas: ;
-    justify-content: center;
+    grid-template-columns: [calculatrice] 500 px;
+    grid-template-rows: [ecran] 100px [touches] 500px;
     grid-gap:1px;
-    background-color: aliceblue;
+    place-content: center;
 }
 
 .ecran {
-    grid-column:1/5;
+    grid-column:1/1;
     grid-row: 1/2;
-    background-color:rgb(10, 0, 50);
+    background-color:rgb(9, 46, 5);
 }
 
-.AC{
+.touches{
+    display:grid;
+    grid-template-columns: repeat(3,100px) [operator] 100px ;
+    grid-template-rows: repeat(6,100px);
+    grid-auto-flow: dense;
+    grid-gap:1px;
+    font-size: large;
+
+}
+
+.touches > button {
+    font-size: 2rem;
+}
+
+[data-operation]{
+    grid-column:operator;
+    order: -1;
+    background-color: rgb(174,230,195);
+    opacity: 0.8;
+}
+
+[data-clear], [data-equals]{
+    background-color: rgb(124,166,148);
+}
+
+
+[data-clear]:nth-child(1){
     grid-column:1/3;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    background-color: rgb(237, 226, 245);
+   
 }
 
-.equals{
-    grid-column:3/5;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    background-color: rgb(237, 226, 245);
-}
-
-.touche_simple {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    background-color: rgb(237, 226, 245);
+[data-equals]{
+    grid-column: 3/5;
 }
